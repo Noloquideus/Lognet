@@ -1,5 +1,5 @@
 import os
-from _log_colors import LogColors
+from lognet._log_colors import LogColors
 
 
 class ConsoleLogStrategy:
