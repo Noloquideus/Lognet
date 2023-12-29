@@ -1,7 +1,7 @@
-from _log_levels import LogLevel
-from _log_formatter import DefaultLogFormatter
-from _log_strategy import ConsoleLogStrategy, FileLogStrategy
-from _log_context import ConsoleLogContext, FileLogContext, LogFormatterContext
+from lognet._log_levels import LogLevel
+from lognet._log_formatter import DefaultLogFormatter
+from lognet._log_strategy import ConsoleLogStrategy, FileLogStrategy
+from lognet._log_context import ConsoleLogContext, FileLogContext, LogFormatterContext
 from colorama import Style
 
 
