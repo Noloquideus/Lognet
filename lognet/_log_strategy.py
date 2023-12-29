@@ -1,5 +1,5 @@
 import os
-from colorama import Fore, Style
+from _log_colors import LogColors
 
 
 class ConsoleLogStrategy:
@@ -8,8 +8,11 @@ class ConsoleLogStrategy:
         self.default_console_color = default_console_color
 
     def log(self, formatted_message, level):
+        # Определение цвета для уровня логирования
         level_color = self.console_color_mapping.get(level, self.default_console_color)
-        colored_message = f"{level_color}{formatted_message}{Style.RESET_ALL}"
+
+        # Используем LogColors вместо colorama
+        colored_message = f"{level_color}{formatted_message}{LogColors.RESET}"
         print(colored_message)
 
 
