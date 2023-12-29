@@ -1,12 +1,12 @@
-# Changelog
+#Changelog
 
 ## [1.0.1] - 2023-12-30
 ### Added
-- Добавлена документация.
+- Added documentation.
 
-### Fixed
-- Исправлен баг с выводом времени.
+###Fixed
+- Fixed a bug with time display.
 
 ## [1.0.0] - 2023-12-29
 ### Initial Release
-- Начальная версия проекта.
+- Initial version of the project.
