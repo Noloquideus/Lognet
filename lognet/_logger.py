@@ -1,9 +1,8 @@
-from lognet._log_levels import LogLevel
-from lognet._log_formatter import DefaultLogFormatter
-from lognet._log_strategy import ConsoleLogStrategy, FileLogStrategy
-from lognet._log_context import ConsoleLogContext, FileLogContext, LogFormatterContext
+from ._log_levels import LogLevel
+from ._log_formatter import  DefaultLogFormatter
+from ._log_strategy import ConsoleLogStrategy, FileLogStrategy
+from ._log_context import ConsoleLogContext, FileLogContext, LogFormatterContext
 from colorama import Style
-
 
 class LognetLogger:
     _instance = None
@@ -14,7 +13,7 @@ class LognetLogger:
             cls._instance._initialized = False
         return cls._instance
 
-    def __init__(self, min_level=LogLevel.INFO, include_timestamp=False, include_file_info=False,
+    def __init__(self, min_level=LogLevel.INFO, include_timestamp=True, include_file_info=True,
                  log_to_console=True, log_to_file=False, file_path='log.txt',
                  console_color_mapping=None, default_console_color=None):
         if not self._initialized:
