@@ -51,9 +51,31 @@ logger = LognetLogger(
     }
 )
 
+
 # Log a message with custom settings
 logger.log("Custom message", level=LogLevel.DEBUG) 
 ```
+
+### Async
+Asynchronous Version:
+Lognet Logger also provides an asynchronous version for situations where asynchronous logging is required. The lognet_async module includes an asynchronous logger LognetLoggerAsync. Below is an example of using the asynchronous version:
+```
+import asyncio
+from lognet.lognet_async import LognetLoggerAsync, LogLevel
+
+# Create an asynchronous logger with DEBUG log level
+async_logger = LognetLoggerAsync(LogLevel.DEBUG)
+
+# Asynchronous function for logging
+async def perform_async_logging():
+    await async_logger.log("Async log message", level=LogLevel.DEBUG)
+    await async_logger.log("Another async log message", level=LogLevel.INFO)
+
+# Run the asynchronous logging function
+asyncio.run(perform_async_logging())
+```
+In this example, the perform_async_logging function logs messages asynchronously using the LognetLoggerAsync instance. The asyncio.run() function is used to execute the asynchronous function. Ensure that your Python version supports asyncio.run() (Python 3.7 and later).
+
 
 ## Documentation
 Check the USAGE.md file for comprehensive examples and configuration details.
