@@ -76,6 +76,8 @@ asyncio.run(perform_async_logging())
 ```
 In this example, the perform_async_logging function logs messages asynchronously using the LognetLoggerAsync instance. The asyncio.run() function is used to execute the asynchronous function. Ensure that your Python version supports asyncio.run() (Python 3.7 and later).
 
+## Connect with me/bug/request/suggestion
+Check the FEEDBACK.md for information
 
 ## Documentation
 Check the USAGE.md file for comprehensive examples and configuration details.
