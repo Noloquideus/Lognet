@@ -2,6 +2,10 @@
 
 ## [1.0.1] - 2023-12-30
 ### Added
+- Added asunc version.
+
+## [1.0.1] - 2023-12-30
+### Added
 - Added documentation.
 
 ###Fixed
