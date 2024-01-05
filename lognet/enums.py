@@ -1,4 +1,4 @@
-from enum import Enum, auto
+from enum import auto, Enum
 
 
 class LogLevel(Enum):
@@ -6,4 +6,4 @@ class LogLevel(Enum):
     INFO = auto()
     WARNING = auto()
     ERROR = auto()
-    EXCEPTION = auto()
+    CRITICAL = auto()

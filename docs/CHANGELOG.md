@@ -1,6 +1,11 @@
 #Changelog
 
-## [1.0.1] - 2023-12-30
+## [2.0.0] - 2023-01-05
+### Refactro code
+- changing all code and structure of code and files.
+- Removed: color windowsol, asynchronous version
+
+## [1.1.0] - 2023-12-30
 ### Added
 - Added asunc version.
 

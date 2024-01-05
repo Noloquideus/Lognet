@@ -1,13 +1,11 @@
 
-# Lognet Logger
-Lognet Logger is a lightweight logging library for Python, designed to simplify the process of logging messages with different levels of severity. It provides an easy-to-use interface, customization options, and color-coded console output for improved readability.
+# Lognet
+Lognet is a lightweight logging library for Python, designed to simplify the process of logging messages with different levels of severity. It provides an easy-to-use interface, customization options.
 
 ## Features
 - Log Levels: Log messages with different severity levels, including DEBUG, INFO, WARNING, ERROR, and EXCEPTION.
 
-- Custom Formatting: Easily customize log formatting, including timestamps and file information.
-
-- Color-Coded Output: Enjoy color-coded console output for better visual distinction of log levels.
+- Convenient log message formatting
 
 - Console and File Logging: Log messages to the console, a file, or both.
 
@@ -20,66 +18,45 @@ pip install lognet
 
 ## Usage
 ### Basic Example
+```python
+from lognet import Logger, LogLevel, ConsoleHandler
+
+# Create a logger instance
+logger = Logger(console_log_handler=ConsoleHandler())
+
+# Log a debug message
+logger.log(level=LogLevel.DEBUG, message="Debug message")
 ```
-from lognet import LogLevel, LognetLogger
+handlers are initially disabled.
 
-# Create a logger with DEBUG log level
-logger = LognetLogger(LogLevel.DEBUG)
+### Change format
+```python
+from lognet import Logger, LogLevel, ConsoleHandler
 
-# Log messages with different levels
-logger.log("Connecting to the database", level=LogLevel.DEBUG)
-logger.log("Complex calculations completed", level=LogLevel.INFO)
-logger.log("Something unexpected happened", level=LogLevel.WARNING)
-logger.log("Something went wrong", level=LogLevel.ERROR)
-logger.log("An exception occurred", level=LogLevel.EXCEPTION)
-```
+# Create a logger instance
+logger = Logger(console_log_handler=ConsoleHandler(), log_format="[{time}] [{log_level}] {message} {file_info}")
 
-### Customization
-```
-from lognet import LognetLogger, LogLevel, LogColors
-
-# Create a customized logger
-logger = LognetLogger(
-    min_level=LogLevel.DEBUG,
-    log_to_console=True,
-    console_color_mapping={
-        LogLevel.DEBUG: LogColors.CYAN,
-        LogLevel.INFO: LogColors.GREEN,
-        LogLevel.WARNING: LogColors.YELLOW,
-        LogLevel.ERROR: LogColors.RED,
-        LogLevel.EXCEPTION: LogColors.MAGENTA,
-    }
-)
-
-
-# Log a message with custom settings
-logger.log("Custom message", level=LogLevel.DEBUG) 
+# Log a debug message
+logger.log(level=LogLevel.DEBUG, message="Debug message")
 ```
 
-### Async
-Asynchronous Version:
-Lognet Logger also provides an asynchronous version for situations where asynchronous logging is required. The lognet_async module includes an asynchronous logger LognetLoggerAsync. Below is an example of using the asynchronous version:
+### File Handler
+```python
+from lognet import Logger, LogLevel, FileHandler
+
+# Create a logger instance
+logger = Logger(file_log_handler=FileHandler(log_file_name='app.log', log_mode='w', max_file_size=2048))
+
+# Log a debug message
+logger.log(level=LogLevel.DEBUG, message="Debug message")
 ```
-import asyncio
-from lognet.lognet_async import LognetLoggerAsync, LogLevel
-
-# Create an asynchronous logger with DEBUG log level
-async_logger = LognetLoggerAsync(LogLevel.DEBUG)
-
-# Asynchronous function for logging
-async def perform_async_logging():
-    await async_logger.log("Async log message", level=LogLevel.DEBUG)
-    await async_logger.log("Another async log message", level=LogLevel.INFO)
-
-# Run the asynchronous logging function
-asyncio.run(perform_async_logging())
-```
-In this example, the perform_async_logging function logs messages asynchronously using the LognetLoggerAsync instance. The asyncio.run() function is used to execute the asynchronous function. Ensure that your Python version supports asyncio.run() (Python 3.7 and later).
 
 ## Future updates
 Ideas that I will try to implement
-- multithreading
+- logging to database
 - Filtration
+- Settings for each message level separately
+- multithreading
 - Integration with metrics and tracing
 - Support various output formats
 - adding tags

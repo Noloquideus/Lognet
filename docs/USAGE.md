@@ -1,36 +1,33 @@
-# Usage Lognet Logger
-
-`LognetLogger` provides a simple interface for logging messages at different levels.
-
-## Usage
-
+# Usage
+### Basic Example
 ```python
-from lognet import LogLevel, LognetLogger
+from lognet import Logger, LogLevel, ConsoleHandler
 
-# We create a logger with a DEBUG logging level, without timestamps and file information
-logger = LognetLogger(LogLevel.DEBUG, include_timestamp=False, include_file_info=False)
+# Create a logger instance
+logger = Logger(console_log_handler=ConsoleHandler())
 
-# Logging messages at different levels
-logger.log("Connecting to the database", level=LogLevel.DEBUG)
-logger.log("Complex calculations completed", level=LogLevel.INFO)
-logger.log("Something unexpected happened", level=LogLevel.WARNING)
-logger.log("Something went wrong", level=LogLevel.ERROR)
-logger.log("An exception occurred", level=LogLevel.EXCEPTION)
+# Log a debug message
+logger.log(level=LogLevel.DEBUG, message="Debug message")
 ```
-### Usage async
 
+### Change format
 ```python
-import asyncio
-from lognet.lognet_async import LognetLoggerAsync, LogLevel
+from lognet import Logger, LogLevel, ConsoleHandler
 
-# Create an asynchronous logger with DEBUG log level
-async_logger = LognetLoggerAsync(LogLevel.DEBUG)
+# Create a logger instance
+logger = Logger(console_log_handler=ConsoleHandler(), log_format="[{time}] [{log_level}] {message} {file_info}")
 
-# Asynchronous function for logging
-async def perform_async_logging():
-    await async_logger.log("Async log message", level=LogLevel.DEBUG)
-    await async_logger.log("Another async log message", level=LogLevel.INFO)
+# Log a debug message
+logger.log(level=LogLevel.DEBUG, message="Debug message")
+```
 
-# Run the asynchronous logging function
-asyncio.run(perform_async_logging())
+### File Handler
+```python
+from lognet import Logger, LogLevel, FileHandler
+
+# Create a logger instance
+logger = Logger(file_log_handler=FileHandler(log_file_name='app.log', log_mode='w', max_file_size=2048))
+
+# Log a debug message
+logger.log(level=LogLevel.DEBUG, message="Debug message")
 ```
