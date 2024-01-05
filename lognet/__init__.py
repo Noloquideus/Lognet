@@ -1,3 +1,4 @@
-from lognet._logger import LognetLogger
-from lognet._log_colors import LogColors
-from lognet._log_levels import LogLevel
+from lognet.logger import Logger, LogLevel
+from lognet.handlers import ConsoleHandler, FileHandler
+
+__all__ = ['logger', 'LogLevel', 'ConsoleHandler', 'FileHandler']
