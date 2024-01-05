@@ -1,6 +1,6 @@
+from .enums import LogLevel
 import datetime
 import inspect
-from .enums import LogLevel
 from .singleton import SingletonLogger
 
 
