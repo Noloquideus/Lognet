@@ -2,7 +2,7 @@ from .enums import LogLevel
 import datetime
 import inspect
 from .singleton import SingletonLogger
-
+from lognet.handlers import ConsoleHandler
 
 class Logger(SingletonLogger):
     """
