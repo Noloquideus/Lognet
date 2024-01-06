@@ -1,4 +1,4 @@
-
+![logo](logo.png)
 # Lognet
 Lognet is a lightweight logging library for Python, designed to simplify the process of logging messages with different levels of severity. It provides an easy-to-use interface, customization options.
 
