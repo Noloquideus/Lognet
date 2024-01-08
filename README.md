@@ -53,13 +53,15 @@ logger.log(level=LogLevel.DEBUG, message="Debug message")
 
 ## Future updates
 Ideas that I will try to implement
+- multithreading
+- async
 - logging to database
 - Filtration
 - Settings for each message level separately
-- multithreading
 - Integration with metrics and tracing
 - Support various output formats
 - adding tags
+- logging in json
 
 ## Connect with me/bug/request/suggestion
 Check the FEEDBACK.md for information
