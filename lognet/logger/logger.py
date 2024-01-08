@@ -1,8 +1,8 @@
-from .enums import LogLevel
+from lognet.enums import LogLevel
 import datetime
 import inspect
-from .singleton import SingletonLogger
-from lognet.handlers import ConsoleHandler
+from lognet.logger.singleton import SingletonLogger
+
 
 class Logger(SingletonLogger):
     """
