@@ -9,7 +9,7 @@ Lognet is a lightweight logging library for Python, designed to simplify the pro
 
 - Console and File Logging: Log messages to the console, a file, or both.
 
-# Installation (soon)
+# Installation
 Install Lognet Logger using pip:
 
 ```
