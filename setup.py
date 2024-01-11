@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name='lognet',
     version='3.0.0',
-    packages=['lognet'],
+    packages=find_packages(),
     python_requires='>=3.5',
     install_requires=[
     ],
