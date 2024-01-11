@@ -15,40 +15,72 @@ Install Lognet Logger using pip:
 ```
 pip install lognet
 ```
-
+## ARCHITECTURE
+```bash
+lognet/
+│
+├── core/
+│   ├── __init__.py
+│   ├── application/
+│   │   ├── __init__.py
+│   │   ├── logger.py
+│   │   ├── handlers/
+│   │   │   ├── handler.py
+│   │   │   ├── file_handler.py
+│   │   │   └── console_handler.py
+│   │   ├── formatters/
+│   │   │   └── log_formatter.py
+│   ├── domain/
+│   │   ├── __init__.py
+│   │   ├── log_levels.py
+│   │   └── log_entity.py
+│   ├── configuration/
+│   │   ├── __init__.py
+│   │   ├── handler_configurator.py
+│   │   └── logger_config.py
+```
 ## Usage
 ### Basic Example
 ```python
-from lognet import Logger, LogLevel, ConsoleHandler
+from lognet import Logger, LogLevel, LoggerConfig, ConsoleHandler, HandlerConfigurator
 
-# Create a logger instance
-logger = Logger(console_log_handler=ConsoleHandler())
 
-# Log a debug message
-logger.log(level=LogLevel.DEBUG, message="Debug message")
+logger_config = LoggerConfig(min_level=LogLevel.DEBUG,
+                             handler_configurator=HandlerConfigurator(console_handler=ConsoleHandler()))
+
+logger = Logger(logger_config)
+
+logger.log(level=LogLevel.INFO, message="Example log message")
 ```
-handlers are initially disabled.
 
 ### Change format
 ```python
-from lognet import Logger, LogLevel, ConsoleHandler
+from lognet import Logger, LogLevel, LoggerConfig, ConsoleHandler, HandlerConfigurator
 
-# Create a logger instance
-logger = Logger(console_log_handler=ConsoleHandler(), log_format="[{time}] [{log_level}] {message} {file_info}")
 
-# Log a debug message
-logger.log(level=LogLevel.DEBUG, message="Debug message")
+logger_config = LoggerConfig(log_format="[{time}] [{log_level}] {message}",
+                             min_level=LogLevel.DEBUG,
+                             handler_configurator=HandlerConfigurator(console_handler=ConsoleHandler()))
+
+logger = Logger(logger_config)
+
+logger.log(level=LogLevel.INFO, message="Example log message")
+logger.log(level=LogLevel.ERROR, message="Example error message")
 ```
 
 ### File Handler
 ```python
-from lognet import Logger, LogLevel, FileHandler
+from lognet import Logger, LogLevel, LoggerConfig, HandlerConfigurator, FileHandler
 
-# Create a logger instance
-logger = Logger(file_log_handler=FileHandler(log_file_name='app.log', log_mode='w', max_file_size=2048))
 
-# Log a debug message
-logger.log(level=LogLevel.DEBUG, message="Debug message")
+logger_config = LoggerConfig(min_level=LogLevel.DEBUG,
+                             handler_configurator=HandlerConfigurator(console_handler=FileHandler(file_name="log.txt")))
+
+logger = Logger(logger_config)
+
+logger.log(level=LogLevel.INFO, message="Example log message")
+logger.log(level=LogLevel.ERROR, message="Example error message")
+```
 ```
 
 ## Future updates
