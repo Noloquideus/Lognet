@@ -2,9 +2,11 @@ from setuptools import setup, find_packages
 
 setup(
     name='lognet',
-    version='2.0.0',
+    version='3.0.0',
     packages=['lognet'],
-    python_requires='>=3.5, <4',
+    python_requires='>=3.5',
+    install_requires=[
+    ],
     author='Noloquideus',
     author_email='daniilmanukian@gmail.com',
     description='A simple logger with a convenient log message format.',
