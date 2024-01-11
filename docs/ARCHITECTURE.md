@@ -13,7 +13,6 @@ lognet/
 │   │   │   └── log_formatter.py
 │   ├── domain/
 │   │   ├── __init__.py
-│   │   ├── log_levels.py
 │   │   └── log_entity.py
 │   ├── configuration/
 │   │   ├── __init__.py
