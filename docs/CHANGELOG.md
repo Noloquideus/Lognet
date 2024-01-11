@@ -1,6 +1,6 @@
 #Changelog
 
-## [3.0.0] - 2024-01-11
+## [3.0.1] - 2024-01-11
 ### Docstring
 - added docstring and update setup.py
 
